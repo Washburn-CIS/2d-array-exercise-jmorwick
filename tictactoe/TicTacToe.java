@@ -5,13 +5,13 @@ public class TicTacToe {
 
     public static void main(String[] args) {
         Scanner in = new Scanner(System.in);
-        board = new char[][]{
+        board = new char[][]{    // each char is . (nothing placed), X, or O
             {'.','.','.'},
             {'.','.','.'},
             {'.','.','.'}};
 
-        char turn = 'X';
-        char winner = '-';
+        char turn = 'X';       // X or O
+        char winner = '-';     // - means no winner, otherwise X or O
         printBoard();
 
         for(int placed=0; placed<9 && winner == '-'; placed++) {
@@ -23,9 +23,9 @@ public class TicTacToe {
 
              // challenge: prevent the turn from advancing if the user entered bad coordinates
 
-
-            board[r][c] = turn;
-            turn = turn == 'X' ? 'O': 'X';
+            // process user's move...
+            board[r][c] = turn;                // save move on board
+            turn = turn == 'X' ? 'O': 'X';     // switch to other player
             printBoard();
             winner = findWinner();
         }
